@@ -11,10 +11,10 @@ default_dag_args = {
     'project_id': 1,
 }
 
-with DAG('Exercise_01_DAG', schedule_interval=None, default_args=default_dag_args) as dag:
+with DAG('Es_01_DAG', schedule_interval=None, default_args=default_dag_args) as dag:
 
-    task_01 = BashOperator(task_id='bash_task', bash_command="echo 'command executed from bash operator'")
-    task_02 = BashOperator(task_id='copy_file', bash_command="cp /home/carlo/airflow/DATA/RAW_DATA/raw.txt /home/carlo/airflow/DATA/CLEAN_DATA")
-    task_03 = BashOperator(task_id='remove_file', bash_command="rm -r /home/carlo/airflow/DATA/RAW_DATA/raw.txt")
+    task_0 = BashOperator(task_id='bash_task', bash_command="echo 'command executed from bash operator'")
+    task_1 = BashOperator(task_id='copy_file', bash_command="cp /mnt/c/Users/riccardo/Desktop/corso_programmazione/DATA_CENTER/DATA_LAKE/dataset_raw.txt /mnt/c/Users/riccardo/Desktop/corso_programmazione/DATA_CENTER/DATA_CLEANED")
+    task_2 = BashOperator(task_id='remove_file', bash_command="rm -r /mnt/c/Users/riccardo/Desktop/corso_programmazione/DATA_CENTER/DATA_LAKE/dataset_raw.txt")
 
-    task_01 >> task_02 >> task_03
+    task_0 >> task_1 >> task_2
